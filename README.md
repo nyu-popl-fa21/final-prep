@@ -188,21 +188,21 @@ why you obtain that specific value.
 
 
 1. Suppose we extend our type systems for object types with a new kind
-   of field mutability: a field `f` with mutability `write` is only
-   allowed to be written to but not read from. For instance, the
+   of field mutability: a field `f` with mutability `sink` is only
+   allowed to be written to, but not to be read from. For instance, the
    following function should be well-typed:
 
    ```javascript
-   function (x: { write f: Num, const g: Num }) {
+   function (x: { sink f: Num, const g: Num }) {
      x.f = 3, x.g
    }
    ```
 
    On the other hand, the next function should not be well-typed
-   because it tries to read from the `write` field `f`:
+   because it tries to read from the `sink` field `f`:
 
    ```javascript
-   function (x: { write f: Num, const g: Num }) {
+   function (x: { sink f: Num, const g: Num }) {
      x.f
    }
    ```
@@ -222,25 +222,25 @@ why you obtain that specific value.
       Gamma |- e1.f = e2 : tau
       ```
       
-   b. We can think of a `let` field as a combination of a `write`
+   b. We can think of a `let` field as a combination of a `sink`
       field and a `const` field. Hence, it makes sense to extend our
       subtyping relation with the ability to *demote* a `let` field to
-      a `write` field, similar to rule SubObjMut that demotes a `let` field to a `const` field:
+      a `sink` field, similar to our existing rule `SubObjMut`, which demotes a `let` field to a `const` field:
    
       ```
       { mut_1 f_1: tau_1, ..., let f: tau, ..., mut_n f_n: tau_n } 
       <:
-      { mut_1 f_1: tau_1, ..., write f: tau, ..., mut_n f_n: tau_n } 
+      { mut_1 f_1: tau_1, ..., sink f: tau, ..., mut_n f_n: tau_n } 
       ```
       
-      We can also introduce a form of depth subtyping of `write` fields:
+      We can also introduce a form of depth subtyping for `sink` fields:
       
       ```
                                  ?
       --------------------------------------------------------
-      { mut_1 f_1: tau_1, ..., write f: tau, ..., mut_n f_n: tau_n } 
+      { mut_1 f_1: tau_1, ..., sink f: tau, ..., mut_n f_n: tau_n } 
       <:
-      { mut_1 f_1: tau_1, ..., write f: tau', ..., mut_n f_n: tau_n } 
+      { mut_1 f_1: tau_1, ..., sink f: tau', ..., mut_n f_n: tau_n } 
       ```
       
       What is the correct premise for this rule? Is it `tau <: tau'`
