@@ -207,10 +207,10 @@ why you obtain that specific value.
    }
    ```
 
-   a. Provide a typing new typing rules for field dereference
-      expressions and field assignment expressions that take into
-      account the new kind of mutability (the semantics of `const` and
-      `let` fields should remain unchanged).
+   a. Provide new typing rules for field dereference expressions and
+      field assignment expressions that take into account the new kind
+      of mutability (the semantics of `const` and `let` fields should
+      remain unchanged).
    
       ```
                ?
@@ -244,8 +244,9 @@ why you obtain that specific value.
       ```
       
       What is the correct premise for this rule? Is it `tau <: tau'`
-      or `tau' <: tau`? Provide a program that shows how the incorrect
-      premise would break the soundness of the type system.
+      or `tau' <: tau`? Only one of these two choices is
+      correct. Provide a program that shows how the incorrect choice
+      would break the soundness of the type system.
       
       
       
