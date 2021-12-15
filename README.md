@@ -144,9 +144,9 @@ why you obtain that specific value.
 
 1. Decide whether the following subtype relations hold
 
-   a. `Num <: {var f: Num}`
+   a. `Num <: {let f: Num}`
 
-   b. `{var f: Num, const g: Bool} <: {var g: Bool, const f: Num}`
+   b. `{let f: Num, const g: Bool} <: {let g: Bool, const f: Num}`
 
    c. `{let f: Num} <: {let g: Bool, const f: Num}`
 
