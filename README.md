@@ -148,17 +148,17 @@ why you obtain that specific value.
 
    b. `{var f: Num, const g: Bool} <: {var g: Bool, const f: Num}`
 
-   c. `{var f: Num} <: {var g: Bool, const f: Num}`
+   c. `{let f: Num} <: {let g: Bool, const f: Num}`
 
-   d. `{var g: Bool, const f: Num} <: {var f: Num}`
+   d. `{let g: Bool, const f: Num} <: {let f: Num}`
 
-   e. `{var f: Num} <: {const f: Num}`
+   e. `{let f: Num} <: {const f: Num}`
 
-   f. `{const f: Num} <: {var f: Num}`
+   f. `{const f: Num} <: {let f: Num}`
 
-   g. `{var f: Num} <: {var f: Any}`
+   g. `{let f: Num} <: {let f: Any}`
 
-   h. `{var f: Num} <: {const f: Any}`
+   h. `{let f: Num} <: {const f: Any}`
 
    i. `{const f: Num} => {const f: Any} <: {const f: Any} => {const f: Num}`
 
@@ -167,23 +167,23 @@ why you obtain that specific value.
 1. Compute the joins and meets of the following pairs of types `(t1, t2)`. 
    Indicate the cases where the meet does not exist.
 
-   a. `t1 = {var f: Bool}`
+   a. `t1 = {let f: Bool}`
       `t2 = {const g: Bool}`
 
 
-   b. `t1 = {var f: Num}`
-      `t2 = {var f: Bool}`
+   b. `t1 = {let f: Num}`
+      `t2 = {let f: Bool}`
 
-   c. `t1 = {var f: Num, var h: Bool}`
-      `t2 = {const f: Bool, const k: {var h: Bool} }`
+   c. `t1 = {let f: Num, let h: Bool}`
+      `t2 = {const f: Bool, const k: {let h: Bool} }`
 
-   d. `t1 = {var f: Any, var h: Bool}`
-      `t2 = {const f: Bool, const k: {var h: Bool} }`
+   d. `t1 = {let f: Any, let h: Bool}`
+      `t2 = {const f: Bool, const k: {let h: Bool} }`
 
-   e. `t1 = {var f: Num} => {var f: Num}`
+   e. `t1 = {let f: Num} => {let f: Num}`
       `t2 = {const f: Any} => {const f: Bool}`
 
-   f. `t1 = {var f: Num} => {var f: Any}`
+   f. `t1 = {let f: Num} => {let f: Any}`
       `t2 = {const f: Bool} => {const f: Bool}`
 
 
