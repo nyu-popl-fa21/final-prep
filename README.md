@@ -509,6 +509,7 @@ why you obtain that specific value.
 
       <details><summary>Solution</summary>
       <p>
+      
       `join = {}`
       `meet = {let f: Bool, const g: Bool}`
       </p>
@@ -519,6 +520,7 @@ why you obtain that specific value.
 
       <details><summary>Solution</summary>
       <p>
+      
       `join = {const f: Any}`
       `meet = _|_`
       </p>
@@ -529,6 +531,7 @@ why you obtain that specific value.
 
       <details><summary>Solution</summary>
       <p>
+      
       `join = {const f: Any}`
       `meet = _|_`
       </p>
@@ -539,6 +542,7 @@ why you obtain that specific value.
 
       <details><summary>Solution</summary>
       <p>
+      
       `join = {const f: Any}`
       `meet = _|_`
       </p>
@@ -549,6 +553,7 @@ why you obtain that specific value.
 
       <details><summary>Solution</summary>
       <p>
+      
       `join = {let f: Num} => {const f: Any}`
       `meet = _|_`
       </p>
@@ -559,6 +564,7 @@ why you obtain that specific value.
 
       <details><summary>Solution</summary>
       <p>
+      
       `join = Any`
       `meet = _|_`
       </p>
@@ -602,6 +608,7 @@ why you obtain that specific value.
       
       <details><summary>Solution</summary>
       <p>
+      
       The following solution relies on the subtyping rules provided in part b.
       
       ```
@@ -646,6 +653,7 @@ why you obtain that specific value.
       
       <details><summary>Solution</summary>
       <p>
+      
       The correct premise is `tau' <: tau`. That is, `sink` fields are typed contravariantly.
       The premise `tau <: tau'` would not be sound as the following example demonstrates:
       
