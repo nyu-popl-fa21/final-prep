@@ -151,6 +151,7 @@ Programs:
    
    <details><summary>Solution</summary>
    <p>
+   
    From the call `f(3)` we can infer that `t1` must by of type
    `Num`. Using this annotation makes the program well-typed. There is
    no other annotation that also makes the program well-typed because of
@@ -172,6 +173,7 @@ Programs:
 
    <details><summary>Solution</summary>
    <p>
+   
    From the function application `f(y)(x)` we can infer that any annotation
    that makes the program well-typed must satisfy the equation:
 
@@ -226,6 +228,7 @@ Programs:
 
    <details><summary>Solution</summary>
    <p>
+   
    From the field dereference operations on `c` we can infer that `t1` must be
    an object type that provides at least the fields `x`, `get`, and
    `inc`. Moreover, since all of these fields are assigned, they must have
@@ -305,8 +308,9 @@ Programs:
 
    <details><summary>Solution</summary>
    <p>
+   
    This example is almost identical to 3. This time we infer the
-   following constraint for t1:
+   following constraint for `t1`:
 
    ```
    t1 = { let x: Num,
@@ -350,6 +354,7 @@ why you obtain that specific value.
 
    <details><summary>Solution</summary>
    <p>
+   
    The program is well-typed. It evaluates to 6. The let parameter `x` is
    freshly allocated in memory, so the assignment on line 3 does not
    modify the value of `y`. Hence, `f(y)` returns 4, and `y` is still 2 when `f` returns.
@@ -368,6 +373,7 @@ why you obtain that specific value.
 
    <details><summary>Solution</summary>
    <p>
+   
    The program is well-typed. It evaluates to 3. Since the parameter `y` of
    `f` is a `name` parameter, each occurrence of `y` in the body of `f` will
    reevaluate the argument expression `x = x + y`. Thus, `f` returns `-2`, and
@@ -385,6 +391,11 @@ why you obtain that specific value.
 
    <details><summary>Solution</summary>
    <p>
+   
+   The program is well-typed. It evaluates to 8. The program is
+   similar to (a) except that `f`'s parameter `x` is now a `ref` parameter,
+   which means that the assignment in `f`'s body also updates the value
+   of `y` to 4. Thus, `f` returns `4` and the new value of `y` when `f` returns is also 4.
    </p>
    </details>
 
@@ -397,11 +408,12 @@ why you obtain that specific value.
    ```
 
    <details><summary>Solution</summary>
-   <p>   
-   The program is well-typed. It evaluates to 8. The program is
-   similar to (a) except that `f`'s parameter `x` is now a `ref` parameter,
-   which means that the assignment in `f`'s body also updates the value
-   of `y` to 4. Thus, `f` returns `4` and the new value of `y` when `f` returns is also 4.
+   <p>
+   
+   The program is not well-types since we are trying to call `f` (which
+   expects a `ref` parameter) with the const variable `y` (which is not
+   assignable).
+   
    </p>
    </details>
 
